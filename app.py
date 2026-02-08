@@ -1,4 +1,3 @@
-import streamlit as st
 from chatbot_logic import get_bot_reply  # Import hàm xử lý logic từ homestay_chatbot.py
 
 # Giới thiệu về Homestay
