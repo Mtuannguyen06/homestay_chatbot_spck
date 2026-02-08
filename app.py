@@ -8,7 +8,7 @@ def homestay_intro():
     **VHomestay** mang đến cho bạn trải nghiệm tuyệt vời với không gian ấm cúng, phòng nghỉ tiện nghi, 
     dịch vụ chuyên nghiệp và giá cả hợp lý. Hãy cùng khám phá các phòng nghỉ của chúng tôi!
     """)
-    st.image("https://via.placeholder.com/800x400.png?text=VHomestay", caption="VHomestay - Nơi nghỉ dưỡng tuyệt vời", use_column_width=True)
+    st.image("https://fulltimeexplorer.com/wp-content/uploads/2017/12/What-is-a-Homestay-2.jpg", caption="VHomestay - Nơi nghỉ dưỡng tuyệt vời", use_container_width=800)
 
 # Giao diện Chatbot
 def homestay_chatbot():
