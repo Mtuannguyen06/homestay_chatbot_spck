@@ -1,5 +1,5 @@
 ﻿,name,description,price
-0,room1,"phòng có 1 giường king size, 1 tivi, 1 tủ lạnh mini","700.000vnd/đêm"
-1,room2,"phòng có 2 giường king size, 1 tivi, 1 tủ lạnh mini","1.000.000vnd/đêm"
-
-
+0,single-room,"Giường đôi, 1 tivi, 1 tủ lạnh mini","800,000vnd/đêm"
+1,double-room,"2 Giường đôi, Wifi, TV, 1 tủ lạnh mini","1.000.000vnd/đêm"
+2,family-room,"Giường queen + Giường đơn, Wifi, TV, 1 tủ lạnh mini","1.500,000vnd/đêm"
+3,vip-room,"Giường king, Wifi, TV, Minibar, 1 tủ lạnh mini","2,000,000vnd/đêm"
