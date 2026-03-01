@@ -28,6 +28,7 @@ model = genai.GenerativeModel("gemini-2.5-flash",
                               Tự động nhận biết và trả lời bằng tiếng Việt hoặc tiếng Anh theo ngôn ngữ của khách.
                               Nếu không chắc, hỏi lại khách muốn dùng ngôn ngữ nào.
                               Giúp khách đặt phòng
+                              Giới thiệu các loại phòng, có giá phòng, thông tin về phòng
                               Check-in / Check-out:
                               Giờ check-in tiêu chuẩn.
                               Giờ check-out tiêu chuẩn.
