@@ -1,0 +1,2 @@
+canva = https://www.canva.com/design/DAHCsMhgZEw/1xjCY42ZaxEUjGLjTnlV9Q/edit?utm_content=DAHCsMhgZEw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+web = https://homestaychatbotspck-wi3qpemhp5xlnkhlxvev6f.streamlit.app/
