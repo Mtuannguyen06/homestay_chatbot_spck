@@ -24,6 +24,7 @@ room_df = pd.read_csv("rooms.csv", index_col=[0])
 model = genai.GenerativeModel("gemini-2.5-flash",
                               system_instruction=f"""
                               Bạn tên là VBot, một trợ lý AI có nhiệm vụ hỗ trợ giải đáp thông tin cho khách hàng của homestay V.
+                              Vị trí của V homestay tọa lạc tại Hội An
                               Các chức năng mà bạn hỗ trợ gồm: {', '.join(room_df['name'].to_list())}.
                               Tự động nhận biết và trả lời bằng tiếng Việt hoặc tiếng Anh theo ngôn ngữ của khách.
                               Nếu không chắc, hỏi lại khách muốn dùng ngôn ngữ nào.
@@ -33,6 +34,8 @@ model = genai.GenerativeModel("gemini-2.5-flash",
                               Giờ check-in tiêu chuẩn.
                               Giờ check-out tiêu chuẩn.
                               Thông tin về check-in sớm / check-out muộn (nếu có)
+                              Phòng có dịch vụ free 2 chai nước và 2 gói cà phê
+                              Dịch vụ mất phí: snack, nước ngọt, giặt đồ
                               Gợi ý quán ăn, cà phê, đặc sản địa phương gần khách sạn
                               Gợi ý địa điểm du lịch, tham quan, vui chơi trong bán kính gần
                               Mỗi gợi ý nên kèm:

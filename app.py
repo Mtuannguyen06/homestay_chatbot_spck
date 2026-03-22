@@ -1,50 +1,79 @@
 import streamlit as st
 from chatbot_logic import get_bot_reply
 
-# Giới thiệu về Homestay (Phần Body)
+#BODY MỚI
 def homestay_intro():
+    # Banner
     st.markdown("""
-    **VHomestay** mang đến cho bạn trải nghiệm tuyệt vời với không gian ấm cúng, 
-    phòng nghỉ tiện nghi, dịch vụ chuyên nghiệp và giá cả hợp lý.
+        <div style="
+            background-image: url('https://fulltimeexplorer.com/wp-content/uploads/2017/12/What-is-a-Homestay-2.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        ">
+            VHomestay - Trải nghiệm như ở nhà
+        </div>
+    """, unsafe_allow_html=True)
+
+    st.write("")
+
+    # Giới thiệu
+    st.markdown("""
+    ### 🌿 Giới thiệu
+    **VHomestay** mang đến không gian ấm cúng, gần gũi thiên nhiên,  
+    phù hợp cho du lịch nghỉ dưỡng, cặp đôi và gia đình.
     """)
-    st.image(
-        "https://fulltimeexplorer.com/wp-content/uploads/2017/12/What-is-a-Homestay-2.jpg",
-        use_container_width=True
-    )
 
-# Giao diện chính với chatbot trong Sidebar
+    # Danh sách phòng
+    st.markdown("### ⭐ Dịch vụ nổi bật")
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.image("https://cdn-icons-png.flaticon.com/512/139/139899.png", width=80)
+        st.write("**Wifi miễn phí**")
+
+    with col2:
+        st.image("https://cdn-icons-png.flaticon.com/512/1046/1046857.png", width=80)
+        st.write("**Ăn sáng tại phòng**")
+
+    with col3:
+        st.image("https://cdn-icons-png.flaticon.com/512/2972/2972185.png", width=80)
+        st.write("**View đẹp sống ảo**")
+
+    # Dịch vụ
+    st.markdown("### ⭐ Dịch vụ")
+    st.markdown("""
+    - 🚗 Đưa đón sân bay  
+    - 🍳 Ăn sáng miễn phí  
+    - 📶 Wifi tốc độ cao  
+    - 🏍️ Thuê xe máy  
+    """)
+
+    # Đánh giá
+    st.markdown("### 💬 Đánh giá khách hàng")
+    st.info("“Phòng sạch đẹp, chủ thân thiện, giá hợp lý!” ⭐⭐⭐⭐⭐")
+    st.info("“Không gian chill, rất đáng để quay lại.” ⭐⭐⭐⭐")
+
+
 def homestay_app():
-    # ===== CSS cho Layout (Body, Footer) với nền màu sáng beige =====
-    st.markdown(
-        """
+
+    #CSS
+    st.markdown("""
         <style>
-            /* Toàn bộ background */
             body {
-                background-color: #f5f5dc; /* Nền màu beige sáng */
-                margin: 0;
-                padding: 0;
+                background-color: #f5f5dc;
             }
 
-            /* Container chính */
-            .main {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 100%; /* Đảm bảo container chiếm toàn bộ chiều rộng */
-                max-width: 100% !important; /* Tăng tối đa chiều rộng container */
-                padding: 0;
-                margin: 0;
-            }
-
-            /* Body */
-            .body-content {
-                margin-bottom: 60px;  /* Để tránh che footer */
-                width: 100%;  /* Đảm bảo body content chiếm toàn bộ chiều rộng */
-            }
-
-            /* Footer */
             .footer {
-                background-color: #f7f7f7;  /* Màu xám sáng */
+                background-color: #f7f7f7;
                 padding: 10px;
                 text-align: center;
                 font-size: 14px;
@@ -57,28 +86,14 @@ def homestay_app():
                 right: 0;
             }
 
-            /* Sidebar */
-            .css-1v3fvcr {
-                background-color: #ffffff; /* Sidebar trắng sáng */
-            }
-
-            .sidebar .sidebar-content {
-                background-color: #e3f2f1; /* Xanh nhạt cho phần sidebar */
+            .block-container {
+                padding-bottom: 60px; /* tránh bị footer đè */
             }
         </style>
-        """, unsafe_allow_html=True
-    )
-
-    # ===== Wrapper để đảm bảo layout không bị che khuất =====
-    st.markdown('<div class="main">', unsafe_allow_html=True)
-
-    # ===== Body =====
-    st.markdown('<div class="body-content">', unsafe_allow_html=True)
-    
-    # Phần giới thiệu về Homestay (Body Content)
+    """, unsafe_allow_html=True)
     homestay_intro()
 
-    # ===== Phần chatbot trong Sidebar =====
+    #SIDEBAR
     st.sidebar.header("Trợ lý ảo VBot")
     st.sidebar.write("Xin chào! Tôi là trợ lý online của VHomestay. Bạn cần trợ giúp gì?")
     st.sidebar.write("(Bạn có thể hỏi tôi về giá phòng, địa điểm du lịch gần đây...)")
@@ -88,12 +103,10 @@ def homestay_app():
             {"role": "assistant", "content": "Xin chào! Bạn cần hỗ trợ gì?"}
         ]
 
-    # Hiển thị lịch sử trò chuyện trong sidebar
     for message in st.session_state.conversation_log:
         with st.sidebar.chat_message(message["role"]):
             st.sidebar.write(message["content"])
 
-    # Nhập nội dung mới cho chatbot
     if prompt := st.sidebar.chat_input("Nhập yêu cầu của bạn..."):
         st.session_state.conversation_log.append(
             {"role": "user", "content": prompt}
@@ -105,14 +118,14 @@ def homestay_app():
             {"role": "assistant", "content": bot_reply}
         )
 
-        st.rerun()  # Gọi st.rerun() để làm mới ứng dụng sau khi có phản hồi mới từ bot
+        st.rerun()
 
-    st.markdown('</div>', unsafe_allow_html=True)  # Đóng body content
+    #FOOTER
+    st.markdown(
+        '<div class="footer">© 2026 VHomestay - Tất cả các quyền được bảo lưu.</div>',
+        unsafe_allow_html=True
+    )
 
-    # ===== Footer =====
-    st.markdown('<div class="footer">© 2026 VHomestay - Tất cả các quyền được bảo lưu.</div>', unsafe_allow_html=True)
-
-    st.markdown('</div>', unsafe_allow_html=True)  # Đóng wrapper chính
 
 if __name__ == "__main__":
     homestay_app()
